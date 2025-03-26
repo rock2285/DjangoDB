@@ -1,0 +1,22 @@
+{% load static %}
+<html>
+  <head>
+    <link rel="stylesheet" href="{% static 'css/s.css' %}">
+  </head>
+<body>
+  <form action="/" method="post">
+  {% csrf_token %}
+  <table>
+  <tr><td>Name:</td><td> <input type="text" name="name"/></td></tr>
+  <tr><td>Code:</td><td> <input type="text" name="code"/></td></tr>
+  </table>
+  <input type="submit"/>
+  </form>
+  <table>
+    <tr><td>name</td><td>code</td></tr>
+    {% for i in items %}
+      <tr><td>{{i.name}}</td><td>{{i.code}}</td></tr>
+    {% endfor %}
+  </table>
+</body>
+</html>
